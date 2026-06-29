@@ -10,15 +10,17 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('libros', function (Blueprint $table) {
-            $table->id();
-            $table->string('titulo');
-            $table->string('genero');
-            $table->integer('paginas');
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('libros', function (Blueprint $table) {
+        $table->id();
+        $table->string('titulo');
+        $table->string('genero');
+        $table->integer('paginas');
+        // Relación exacta con tu tabla autores
+        $table->foreignId('autor_id')->constrained('autores')->onDelete('cascade');
+        $table->timestamps();
+    });
+}
 
     /**
      * Reverse the migrations.

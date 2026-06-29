@@ -14,6 +14,13 @@ class Libro extends Model
     protected $fillable = [
         'titulo',
         'genero',
-        'paginas'
+        'paginas',
+        'autor_id' // ◄— ASEGÚRATE DE AGREGAR ESTO AQUÍ
     ];
+
+    // ◄— AGREGAR ESTA RELACIÓN (Un libro pertenece a un autor)
+    public function autor()
+    {
+        return $this->belongsTo(Autor::class, 'autor_id');
+    }
 }

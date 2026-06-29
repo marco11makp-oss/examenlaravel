@@ -16,4 +16,10 @@ class Autor extends Model
         'apellido',
         'nacionalidad'
     ];
+
+    // ◄— AGREGAR ESTA RELACIÓN (Un autor tiene muchos libros)
+    public function libros()
+    {
+        return $this->hasMany(Libro::class, 'autor_id');
+    }
 }
