@@ -15,10 +15,9 @@ class Libro extends Model
         'titulo',
         'genero',
         'paginas',
-        'autor_id' // ◄— ASEGÚRATE DE AGREGAR ESTO AQUÍ
+        'autor_id'
     ];
 
-    // ◄— AGREGAR ESTA RELACIÓN (Un libro pertenece a un autor)
     public function autor()
     {
         return $this->belongsTo(Autor::class, 'autor_id');
